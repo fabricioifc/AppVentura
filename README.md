@@ -12,3 +12,12 @@ Material para oficinas do projeto de extensão AppVentura
 # Temas Transversais
 
 Depois vou adicionar os temas aqui
+
+## Ideias
+
+Ideias de ferramentas para criar o material
+
+ - ChatGPT
+ - Grok
+ - ClaudeAI
+ - DeepSeek
