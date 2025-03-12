@@ -6,5 +6,9 @@ Material para oficinas do projeto de extensão AppVentura
 
  - Coordenador: Fabricio Bizotto
  - Bolsista: Izabelly Coser Guindani
- - Colaborador: 
- - Colaborador
+ - Colaborador: Yaskara Manenti
+ - Colaborador: Livia
+
+# Temas Transversais
+
+Depois vou adicionar os temas aqui
