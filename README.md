@@ -72,3 +72,4 @@ Ideias de ferramentas para criar o material
  - Estudar Markdown
  - Pensar em um primeiro aplicativo relacionado a algum tema transversal da BNCC
 
+> **Dica**: Seria interessante criar um joguinho simples.
