@@ -7,7 +7,7 @@ Material para oficinas do projeto de extensão AppVentura
  - Coordenador: Fabricio Bizotto
  - Bolsista: Izabelly Coser Guindani
  - Colaborador: Yaskara Manenti
- - Colaborador: Livia Becker Rinaldi
+ - Colaborador: Livia B
 
 # Temas Transversais
 
@@ -71,3 +71,22 @@ Ideias de ferramentas para criar o material
     - Livia: duas primeiras aulas vagas na sexta-feira à tarde.
  - Estudar Markdown
  - Pensar em um primeiro aplicativo relacionado a algum tema transversal da BNCC
+
+ ## Código 
+
+```javascript
+import React from 'react';
+import { Text, View } from 'react-native';
+export default function App() {
+    return (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}>
+        <Text style={{ fontSize: 30 }}>Olá, Mundo!</Text>
+        </View>
+    );
+}
+```
