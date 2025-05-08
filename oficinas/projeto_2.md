@@ -8,7 +8,7 @@ Vamos criar um simples aplicativo usando Expo Snack. O objetivo é desenvolver u
 2. Clique em "Create New Snack".
 3. No arquivo `App.js`, apague todo o conteúdo e adicione o seguinte código:
 
-### Passo 2: Criar um novo projeto
+### Passo 2: 
 
 ### Código Final
 
