@@ -6,7 +6,7 @@ Vamos criar um simples aplicativo usando Expo Snack. O objetivo é imprimir no c
 
 1. Acesse o [Expo Snack](https://snack.expo.dev/).
 2. Clique em "Create New Snack".
-3. No arquivo `App.js`, apague todo o conteúdo e adicione o seguintente código:
+3. No arquivo `App.js`, apague todo o conteúdo e adicione o seguinte código:
 
 ```jsx
 import React from 'react';
