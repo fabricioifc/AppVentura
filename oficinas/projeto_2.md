@@ -1,4 +1,4 @@
-## Olá, Mundo! - React Native
+## Clicker do Cofrinho (dá pra mudar esse nome 😌)! - React Native
 
 Vamos criar um simples aplicativo usando Expo Snack. O objetivo é desenvolver um jogo clicker básico.
 
