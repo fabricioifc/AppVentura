@@ -45,7 +45,7 @@ export default function App() {
 ```
 ---
 
-##🕒 Funcionários geram dinheiro automático
+## 🕒 Funcionários geram dinheiro automático
 
 ```js
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function App() {
 
 ---
 
-#🧩 Funções do jogo
+# 🧩 Funções do jogo
 
 ## 💰 Clicar para ganhar dinheiro
 
@@ -70,7 +70,7 @@ export default function App() {
 
 ---
 
-##🛠 Melhorar clique
+## 🛠 Melhorar clique
 
 ```js
   const buyClickUpgrade = () => {
@@ -86,7 +86,7 @@ export default function App() {
 
 ---
 
-🧑‍💼 Contratar funcionários
+## 🧑‍💼 Contratar funcionários
 
 ```js
   const hireEmployee = () => {
@@ -102,7 +102,7 @@ export default function App() {
 
 ---
 
-##🏢 Abrir nova empresa (reseta progresso)
+## 🏢 Abrir nova empresa (reseta progresso)
 
 ```js
   const resetForNewCompany = () => {
@@ -130,7 +130,7 @@ export default function App() {
 
 ---
 
-##🪟 Mostrar mensagens
+## 🪟 Mostrar mensagens
 
 ```js
   const showModal = (message) => {
@@ -141,7 +141,7 @@ export default function App() {
 
 ---
 
-##🎨 Interface do usuário
+## 🎨 Interface do usuário
 
 ```js
   return (
@@ -204,7 +204,7 @@ export default function App() {
 
 ---
 
-##🎨 Estilos
+## 🎨 Estilos
 
 ```js
 const styles = StyleSheet.create({
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
 
 ---
 
-#🚀 Dicas de customização
+# 🚀 Dicas de customização
 
 - Troque os emojis pelos seus próprios!
 
