@@ -43,6 +43,7 @@ export default function App() {
   const [modalMessage, setModalMessage] = useState('');
 
 ```
+---
 
 ##🕒 Funcionários geram dinheiro automático
 
@@ -55,6 +56,8 @@ export default function App() {
   }, [employeeCount, multiplier]);
 ```
 
+---
+
 #🧩 Funções do jogo
 
 ## 💰 Clicar para ganhar dinheiro
@@ -64,6 +67,8 @@ export default function App() {
     setMoney(prev => prev + clickPower * multiplier);
   };
 ```
+
+---
 
 ##🛠 Melhorar clique
 
@@ -79,6 +84,8 @@ export default function App() {
   };
 ```
 
+---
+
 🧑‍💼 Contratar funcionários
 
 ```js
@@ -92,6 +99,8 @@ export default function App() {
     }
   };
 ```
+
+---
 
 ##🏢 Abrir nova empresa (reseta progresso)
 
@@ -119,6 +128,8 @@ export default function App() {
   };
 ```
 
+---
+
 ##🪟 Mostrar mensagens
 
 ```js
@@ -127,6 +138,8 @@ export default function App() {
     setModalVisible(true);
   };
 ```
+
+---
 
 ##🎨 Interface do usuário
 
@@ -188,6 +201,8 @@ export default function App() {
   );
 }
 ```
+
+---
 
 ##🎨 Estilos
 
@@ -313,6 +328,8 @@ const styles = StyleSheet.create({
 });
 ```
 
+---
+
 #🚀 Dicas de customização
 
 - Troque os emojis pelos seus próprios!
@@ -322,3 +339,5 @@ const styles = StyleSheet.create({
 - Coloque um botão de "Reset Total"
 
 - Salve o progresso com AsyncStorage (avançado)
+
+---
