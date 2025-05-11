@@ -1,21 +1,30 @@
-## Clicker do Cofrinho (dá pra mudar esse nome 😌)! - React Native
+# 💸 Clicker do Cofrinho (React Native + Expo)
 
-Vamos criar um simples aplicativo usando Expo Snack. O objetivo é desenvolver um jogo clicker básico.
+Vamos criar um app simples usando **React Native no Expo Snack**, no estilo **clicker game**. O jogador ganha dinheiro ao clicar, contrata funcionários, faz upgrades e abre novas empresas!
 
-### Passo 1: Criar um novo projeto
+---
 
-1. Acesse o [Expo Snack](https://snack.expo.dev/).
-2. Clique em "Create New Snack".
-3. No arquivo `App.js`, apague todo o conteúdo e adicione o seguinte código:
+## 🎯 Objetivo
 
-### Passo 2: 
+- Clicar para ganhar dinheiro 💰  
+- Melhorar o clique 🖱  
+- Contratar funcionários 👨‍💼  
+- Abrir novas empresas 🏢  
+- Multiplicar ganhos 📈  
 
-### Código Final
+---
 
-O código final do arquivo `App.js`, com os estilos separados, deve ser:
+## 🧪 Começando
 
-```jsx
+1. Acesse o site [https://snack.expo.dev/](https://snack.expo.dev/)
+2. Clique em **"Create New Snack"**
+3. Apague tudo em `App.js` para começar do zero
 
+---
+
+## 🧠 Estados do jogo
+
+```js
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 
@@ -28,27 +37,37 @@ export default function App() {
   const [employeeCost, setEmployeeCost] = useState(50);
 
   const [multiplier, setMultiplier] = useState(1);
-  const [companyLevel, setCompanyLevel] = useState(1); // Até 6
+  const [companyLevel, setCompanyLevel] = useState(1);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
 
+```
+
+##🕒 Funcionários geram dinheiro automático
+
+```js
   useEffect(() => {
     const id = setInterval(() => {
       setMoney(prev => prev + employeeCount * 2 * multiplier);
     }, 1000);
     return () => clearInterval(id);
   }, [employeeCount, multiplier]);
+```
 
-  const showModal = (message) => {
-    setModalMessage(message);
-    setModalVisible(true);
-  };
+#🧩 Funções do jogo
 
+## 💰 Clicar para ganhar dinheiro
+
+```js
   const handleClick = () => {
     setMoney(prev => prev + clickPower * multiplier);
   };
+```
 
+##🛠 Melhorar clique
+
+```js
   const buyClickUpgrade = () => {
     if (money >= clickUpgradeCost) {
       setMoney(money - clickUpgradeCost);
@@ -58,7 +77,11 @@ export default function App() {
       showModal(`💸 Você precisa de R$${clickUpgradeCost}`);
     }
   };
+```
 
+🧑‍💼 Contratar funcionários
+
+```js
   const hireEmployee = () => {
     if (money >= employeeCost) {
       setMoney(money - employeeCost);
@@ -68,7 +91,11 @@ export default function App() {
       showModal(`💸 Você precisa de R$${employeeCost}`);
     }
   };
+```
 
+##🏢 Abrir nova empresa (reseta progresso)
+
+```js
   const resetForNewCompany = () => {
     const nextCost = companyLevel * 200;
 
@@ -90,7 +117,20 @@ export default function App() {
       showModal(`💸 Você precisa de R$${nextCost} para abrir nova empresa.`);
     }
   };
+```
 
+##🪟 Mostrar mensagens
+
+```js
+  const showModal = (message) => {
+    setModalMessage(message);
+    setModalVisible(true);
+  };
+```
+
+##🎨 Interface do usuário
+
+```js
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Clicker do Cofrinho</Text>
@@ -147,7 +187,11 @@ export default function App() {
     </ScrollView>
   );
 }
+```
 
+##🎨 Estilos
+
+```js
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#053959',
@@ -267,6 +311,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-
 ```
+
+#🚀 Dicas de customização
+
+- Troque os emojis pelos seus próprios!
+
+- Mude os valores para deixar mais rápido ou mais difícil
+
+- Coloque um botão de "Reset Total"
+
+- Salve o progresso com AsyncStorage (avançado)
