@@ -141,7 +141,7 @@ export default function App() {
 
 ---
 
-## 🎨 Interface do usuário
+# 🎨 Interface do usuário
 
 ```js
   return (
@@ -204,7 +204,7 @@ export default function App() {
 
 ---
 
-## 🎨 Estilos
+# 🎨 Estilos
 
 ```js
 const styles = StyleSheet.create({
