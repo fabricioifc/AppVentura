@@ -25,7 +25,7 @@ Ideal para crianças ou iniciantes em programação com React Native usando **Ex
 ---
 ## Importação de Bibliotecas
 
-Comece com o seguinte código
+Comece com o seguinte código:
 
 ``` jsx
 import React, { useState, useEffect } from 'react';
