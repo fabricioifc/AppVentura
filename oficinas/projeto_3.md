@@ -213,6 +213,9 @@ const estilos = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  botaoDesativado: {
+    opacity: 0.5,
+  }
 });
 ```
 
