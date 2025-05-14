@@ -23,6 +23,14 @@ Ideal para crianças ou iniciantes em programação com React Native usando **Ex
 4. Cole o código abaixo e siga os comentários no tutorial
 
 ---
+## Importação de Bibliotecas
+
+Comece com o seguinte código
+
+``` jsx
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+```
 
 ## 🧠 Estados do jogo
 
@@ -33,9 +41,6 @@ const [custoMelhoriaClique, setCustoMelhoriaClique] = useState(5); // Preço par
 
 const [ajudantes, setAjudantes] = useState(0);      // Quantos ajudantes temos
 const [custoAjudante, setCustoAjudante] = useState(20); // Custo do próximo ajudante
-
-const [mostrarAviso, setMostrarAviso] = useState(false); // Mostra um aviso na tela?
-const [mensagemAviso, setMensagemAviso] = useState('');  // Qual mensagem mostrar
 ```
 
 ---
@@ -109,56 +114,40 @@ Cada ajudante custa doces. A cada compra, o próximo fica mais caro.
 
 ---
 
-## 🔔 Mensagem de Aviso
-
-``` jsx 
-const mostrarMensagem = (mensagem) => {
-  setMensagemAviso(mensagem);
-  setMostrarAviso(true);
-};
-```
-
-Função para exibir mensagens de erro ou alerta ao usuário.
-
----
-
 ## 🧁 Interface (UI)
 
 ``` jsx
-return (
-  <ScrollView contentContainerStyle={estilos.container}>
-    <Text style={estilos.titulo}>Click do Docinho 🍭</Text>
+ return (
+    <ScrollView contentContainerStyle={estilos.container}>
+      <Text style={estilos.titulo}>Click do Docinho 🍭</Text>
 
-    <View style={estilos.caixaStatus}>
-      <Text style={estilos.texto}>🍬 Doces: <Text style={estilos.negrito}>{doces}</Text></Text>
-      <Text style={estilos.texto}>👆 Clique: +{poderDoClique} doces</Text>
-      <Text style={estilos.texto}>🧸 Ajudantes: {ajudantes}</Text>
-    </View>
-
-    <TouchableOpacity style={estilos.botaoDoce} onPress={clicar}>
-      <Text style={estilos.doce}>🍭</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={estilos.botao} onPress={melhorarClique}>
-      <Text style={estilos.textoBotao}>Melhorar Clique ({custoMelhoriaClique} doces)</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={estilos.botaoSecundario} onPress={comprarAjudante}>
-      <Text style={estilos.textoBotao}>Chamar Ajudante ({custoAjudante} doces)</Text>
-    </TouchableOpacity>
-
-    {mostrarAviso && (
-      <View style={estilos.modal}>
-        <View style={estilos.modalCaixa}>
-          <Text style={estilos.modalTexto}>{mensagemAviso}</Text>
-          <TouchableOpacity onPress={() => setMostrarAviso(false)} style={estilos.modalBotao}>
-            <Text style={estilos.modalBotaoTexto}>OK!</Text>
-          </TouchableOpacity>
-        </View>
+      <View style={estilos.caixaStatus}>
+        <Text style={estilos.texto}>🍬 Doces: <Text style={estilos.negrito}>{doces}</Text></Text>
+        <Text style={estilos.texto}>👆 Clique: +{poderDoClique} doces</Text>
+        <Text style={estilos.texto}>🧸 Ajudantes: {ajudantes}</Text>
       </View>
-    )}
-  </ScrollView>
-);
+
+      <TouchableOpacity style={estilos.botaoDoce} onPress={clicar}>
+        <Text style={estilos.doce}>🍭</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[estilos.botao, doces < custoMelhoriaClique && estilos.botaoDesativado]}
+        onPress={melhorarClique}
+        disabled={doces < custoMelhoriaClique}
+      >
+        <Text style={estilos.textoBotao}>Melhorar Clique ({custoMelhoriaClique} doces)</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[estilos.botaoSecundario, doces < custoAjudante && estilos.botaoDesativado]} // se não tiver doces suficientes para comprar um ajudante, desativa o botão
+        onPress={comprarAjudante}
+        disabled={doces < custoAjudante}
+      >
+        <Text style={estilos.textoBotao}>Chamar Ajudante ({custoAjudante} doces)</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
 ```
 
 ---
@@ -220,39 +209,6 @@ const estilos = StyleSheet.create({
     alignItems: 'center',
   },
   textoBotao: {
-    color: '#FFF',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  modal: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalCaixa: {
-    backgroundColor: '#FFF',
-    padding: 20,
-    borderRadius: 10,
-    width: '80%',
-    alignItems: 'center',
-  },
-  modalTexto: {
-    fontSize: 16,
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-  modalBotao: {
-    backgroundColor: '#FF69B4',
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-  },
-  modalBotaoTexto: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 16,
