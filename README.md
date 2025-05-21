@@ -73,3 +73,7 @@ Ideias de ferramentas para criar o material
  - Pensar em um primeiro aplicativo relacionado a algum tema transversal da BNCC
 
 > **Dica**: Seria interessante criar um joguinho simples.
+
+# Link Expo Snack
+
+[link](https://snack.expo.dev/@willian_moreira/doces)
