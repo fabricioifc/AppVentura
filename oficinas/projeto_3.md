@@ -1,4 +1,4 @@
-# 🍭 Click do Docinho - Tutorial com React Native (Expo Snack)
+## 🍭 Click do Docinho - Tutorial com React Native (Expo Snack)
 
 Um jogo estilo **clicker** com tema de doces, onde o jogador ganha 🍬 clicando, contrata ajudantes 🧸 e melhora o poder de clique 👆!
 
@@ -6,7 +6,7 @@ Ideal para crianças ou iniciantes em programação com React Native usando **Ex
 
 ---
 
-## 🎯 Objetivo
+### 🎯 Objetivo
 
 - Ganhar doces clicando no botão 🍭  
 - Melhorar o clique para ganhar mais doces por toque  
@@ -15,7 +15,7 @@ Ideal para crianças ou iniciantes em programação com React Native usando **Ex
 
 ---
 
-## 🚀 Começando no Expo Snack
+### 🚀 Começando no Expo Snack
 
 1. Acesse o site: [https://snack.expo.dev/](https://snack.expo.dev/)
 2. Clique em **"Create New Snack"**
@@ -23,7 +23,7 @@ Ideal para crianças ou iniciantes em programação com React Native usando **Ex
 4. Cole o código abaixo e siga os comentários no tutorial
 
 ---
-## Importação de Bibliotecas
+### Importação de Bibliotecas
 
 Comece com o seguinte código:
 
@@ -32,7 +32,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 ```
 
-## 🧠 Estados do jogo
+### 🧠 Estados do jogo
 
 ```jsx
 const [doces, setDoces] = useState(0);              // Total de doces 🍬
@@ -45,7 +45,7 @@ const [custoAjudante, setCustoAjudante] = useState(20); // Custo do próximo aju
 
 ---
 
-## ⏲ Ajudantes produzem doces automaticamente
+### ⏲ Ajudantes produzem doces automaticamente
 
 ```jsx
 useEffect(() => {
@@ -60,7 +60,7 @@ A cada 1 segundo, cada ajudante gera 1 doce automaticamente.
 
 ---
 
-## ✋ Clique para ganhar doces
+### ✋ Clique para ganhar doces
 
 ``` jsx
 const clicar = () => {
@@ -72,7 +72,7 @@ Cada clique gera doces baseado no poder do clique atual.
 
 ---
 
-## 🛠 Melhorar clique
+### 🛠 Melhorar clique
 
 ``` jsx
 const melhorarClique = () => {
@@ -89,14 +89,12 @@ const melhorarClique = () => {
 Ao clicar, você:
 
 - Gasta doces
-
 - Aumenta o poder de clique
-
 - Aumenta o custo da próxima melhoria
 
 ---
 
-## 🧸 Contratar Ajudantes
+### 🧸 Contratar Ajudantes
 
 ``` jsx 
 const comprarAjudante = () => {
@@ -114,7 +112,7 @@ Cada ajudante custa doces. A cada compra, o próximo fica mais caro.
 
 ---
 
-## 🧁 Interface (UI)
+### 🧁 Interface (UI)
 
 ``` jsx
  return (
@@ -152,7 +150,7 @@ Cada ajudante custa doces. A cada compra, o próximo fica mais caro.
 
 ---
 
-## 🎨 Estilos com StyleSheet
+### 🎨 Estilos com StyleSheet
 
 ``` jsx
 const estilos = StyleSheet.create({
@@ -219,10 +217,6 @@ const estilos = StyleSheet.create({
 });
 ```
 
----
-
-# ✅ Finalizado!
+#### ✅ Finalizado!
 
 Seu clicker está pronto! Agora é só brincar, aprender e melhorar!
-
----
