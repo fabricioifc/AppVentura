@@ -223,12 +223,12 @@ Seu clicker está pronto! Agora é só brincar, aprender e melhorar!
 
 ## 🎯 Desafios
 
-## ✅ Missão 1: Reiniciar o Jogo
+### ✅ Missão 1: Reiniciar o Jogo
 
-### 🎯 Objetivo
+#### 🎯 Objetivo
 Permitir que o jogador possa resetar o jogo para o estado inicial.
 
-### 🧠 Função:
+#### 🧠 Função:
 ```jsx
 const reiniciarJogo = () => {
   setDoces(0);
@@ -239,7 +239,7 @@ const reiniciarJogo = () => {
 };
 ```
 
-### ➕ Botão:
+#### ➕ Botão:
 ```jsx
 <TouchableOpacity style={estilos.botaoSecundario} onPress={reiniciarJogo}>
   <Text style={estilos.textoBotao}>🔁 Reiniciar Jogo</Text>
@@ -248,23 +248,23 @@ const reiniciarJogo = () => {
 
 ---
 
-## ✅ Missão 2: Modal de Mensagem
+### ✅ Missão 2: Modal de Mensagem
 
-### 🎯 Objetivo
+#### 🎯 Objetivo
 Substituir os alerts nativos por um modal personalizado para exibir mensagens, como falta de doces.
 
-### 🔌 Importações
+#### 🔌 Importações
 ```jsx
 import { Modal } from 'react-native';
 ```
 
-### 🧠 Estados:
+#### 🧠 Estados:
 ```jsx
 const [mensagemModal, setMensagemModal] = useState('');
 const [modalVisivel, setModalVisivel] = useState(false);
 ```
 
-### 🔧 Função para exibir mensagens:
+#### 🔧 Função para exibir mensagens:
 ```jsx
 const mostrarMensagem = (mensagem) => {
   setMensagemModal(mensagem);
@@ -272,7 +272,7 @@ const mostrarMensagem = (mensagem) => {
 };
 ```
 
-### 🧁 Componente do Modal:
+#### 🧁 Componente do Modal:
 ```jsx
 <Modal transparent visible={modalVisivel} animationType="fade">
   <View style={estilos.modalFundo}>
@@ -286,7 +286,7 @@ const mostrarMensagem = (mensagem) => {
 </Modal>
 ```
 
-### 🎨 Estilos para o modal:
+#### 🎨 Estilos para o modal:
 ```jsx
 modalFundo: {
   flex: 1,
@@ -305,17 +305,17 @@ modalCaixa: {
 
 ---
 
-## ✅ Missão 3: Conquista de 100 Doces
+### ✅ Missão 3: Conquista de 100 Doces
 
-### 🎯 Objetivo
+#### 🎯 Objetivo
 Mostrar uma conquista visual quando o jogador atingir 100 doces.
 
-### 🧠 Estado:
+#### 🧠 Estado:
 ```jsx
 const [conquista, setConquista] = useState(false);
 ```
 
-### ⚡ Efeito:
+#### ⚡ Efeito:
 ```jsx
 useEffect(() => {
   if (doces >= 100 && !conquista) {
@@ -325,7 +325,7 @@ useEffect(() => {
 }, [doces]);
 ```
 
-### 🖼 Exibição da conquista:
+#### 🖼 Exibição da conquista:
 ```jsx
 {conquista && (
   <Text style={[estilos.texto, { color: 'gold', fontWeight: 'bold' }]}>
@@ -336,18 +336,18 @@ useEffect(() => {
 
 ---
 
-## ✅ Missão 4: Rebirth (Renascimento)
+### ✅ Missão 4: Rebirth (Renascimento)
 
-### 🎯 Objetivo
+#### 🎯 Objetivo
 Permitir que o jogador reinicie o jogo após atingir uma meta de doces, ganhando um bônus de multiplicador que aumenta a produção de doces por clique e ajudantes.
 
-### 🧠 Estados adicionais:
+#### 🧠 Estados adicionais:
 ```jsx
 const [multiplicador, setMultiplicador] = useState(1);
 const [custoRebirth, setCustoRebirth] = useState(100);
 ```
 
-### 🔁 Função de Rebirth:
+#### 🔁 Função de Rebirth:
 ```jsx
 const fazerRebirth = () => {
   if (doces >= custoRebirth) {
@@ -365,7 +365,7 @@ const fazerRebirth = () => {
 };
 ```
 
-### ➕ Botão para Rebirth:
+#### ➕ Botão para Rebirth:
 ```jsx
 <TouchableOpacity
   style={[estilos.botao, doces < custoRebirth && estilos.botaoDesativado]}
