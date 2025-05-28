@@ -1,58 +1,34 @@
+
+# 🎮 Missões do Jogo Clicker - React Native
+
 ## 🎯 Desafios
 
-✅ Missão 1: Personalize o Visual do App
+---
+
+### ✅ Missão 1: Personalize o Visual do App
 
 Sua primeira missão é deixar o app com a sua cara! Para isso, vamos alterar os estilos utilizados na interface.
 
-1. Localize a variável estilos, que é criada com o StyleSheet.create(...).
-
+1. Localize a variável `estilos`, que é criada com o `StyleSheet.create(...)`.
 2. Dentro dela, você encontrará várias configurações visuais — como cores, tamanhos, margens, etc.
-
 3. Escolha um dos blocos de estilo e modifique algum valor para ver o resultado no app.
 
 💡 Dica: Procure por este trecho no código:
 
 ```jsx
-
 const estilos = StyleSheet.create({
   // Altere os valores aqui
 });
-
 ```
 
 Use sua criatividade e experimente diferentes combinações!
 
-
-### ✅ Missão 2: Reiniciar o Jogo
-
-#### 🎯 Objetivo
-
-Permitir que o jogador possa resetar o jogo para o estado inicial.
-
-#### 🧠 Função:
-```jsx
-const reiniciarJogo = () => {
-  setDoces(0);
-  setPoderDoClique(1 * multiplicador);
-  setCustoMelhoriaClique(5);
-  setAjudantes(0);
-  setCustoAjudante(20);
-};
-```
-
-#### ➕ Botão:
-```jsx
-<TouchableOpacity style={estilos.botaoSecundario} onPress={reiniciarJogo}>
-  <Text style={estilos.textoBotao}>🔁 Reiniciar Jogo</Text>
-</TouchableOpacity>
-```
-
 ---
 
-### ✅ Missão 3: Modal de Mensagem
+### ✅ Missão 2: Modal de Mensagem
 
-#### 🎯 Objetivo
-Substituir os alerts nativos por um modal personalizado para exibir mensagens, como falta de doces.
+#### 🎯 Objetivo  
+Substituir os alerts nativos por um modal personalizado para exibir mensagens (por exemplo: falta de doces).
 
 #### 🔌 Importações
 ```jsx
@@ -106,41 +82,41 @@ modalCaixa: {
 
 ---
 
-### ✅ Missão 4: Conquista de 100 Doces
+### ✅ Missão 3: Conquista de 100 Doces
 
-#### 🎯 Objetivo
-Mostrar uma conquista visual quando o jogador atingir 100 doces.
+#### 🎯 Objetivo  
+Mostrar uma conquista visual quando o jogador atingir um certo número de doces (começando com 100).
 
 #### 🧠 Estado:
 ```jsx
-const [conquista, setConquista] = useState(false);
+const [conquista, setConquista] = useState(0);
 ```
 
 #### ⚡ Efeito:
 ```jsx
 useEffect(() => {
-  if (doces >= 100 && !conquista) {
-    setConquista(true);
-    mostrarMensagem('🏆 Conquista: Docinho Mestre!');
+  if (doces >= custoRebirth && conquista < multiplicador) {
+    setConquista(multiplicador);
+    mostrarMensagem(`🏆 Conquista: Docinho Mestre nível ${multiplicador}!`);
   }
-}, [doces]);
+}, [doces, multiplicador]);
 ```
 
 #### 🖼 Exibição da conquista:
 ```jsx
-{conquista && (
+{conquista > 0 && (
   <Text style={[estilos.texto, { color: 'gold', fontWeight: 'bold' }]}>
-    🏆 Conquista: Docinho Mestre!
+    🏆 Conquista: Docinho Mestre nível {conquista}!
   </Text>
 )}
 ```
 
 ---
 
-### ✅ Missão 5: Rebirth (Renascimento)
+### ✅ Missão 4: Rebirth (Renascimento)
 
-#### 🎯 Objetivo
-Permitir que o jogador reinicie o jogo após atingir uma meta de doces, ganhando um bônus de multiplicador que aumenta a produção de doces por clique e ajudantes.
+#### 🎯 Objetivo  
+Permitir que o jogador reinicie o jogo ao atingir uma meta de doces, ganhando um bônus de multiplicador que aumenta a produção de doces por clique e ajudantes.
 
 #### 🧠 Estados adicionais:
 ```jsx
@@ -152,21 +128,23 @@ const [custoRebirth, setCustoRebirth] = useState(100);
 ```jsx
 const fazerRebirth = () => {
   if (doces >= custoRebirth) {
-    setMultiplicador(m => m + 1);
+    const novoMultiplicador = multiplicador + 1;
+    setMultiplicador(novoMultiplicador);
     setDoces(0);
-    setPoderDoClique((1) * (multiplicador + 1));
+    setPoderDoClique(1 * novoMultiplicador);
     setCustoMelhoriaClique(5);
     setAjudantes(0);
     setCustoAjudante(20);
     setCustoRebirth(custoRebirth * 2);
-    mostrarMensagem(`🌟 Rebirth feito! Multiplicador agora é x${multiplicador + 1}`);
+    setConquista(novoMultiplicador);
+    mostrarMensagem(`🌟 Rebirth feito! Multiplicador agora é x${novoMultiplicador}`);
   } else {
-    mostrarMensagem(`✨ Você precisa de ${custoRebirth} doces para Rebirth`);
+    mostrarMensagem(`✨ Você precisa de ${custoRebirth} doces para fazer Rebirth`);
   }
 };
 ```
 
-#### ➕ Botão para Rebirth:
+#### ➕ Botão:
 ```jsx
 <TouchableOpacity
   style={[estilos.botao, doces < custoRebirth && estilos.botaoDesativado]}
@@ -178,3 +156,30 @@ const fazerRebirth = () => {
 ```
 
 ---
+
+### ✅ Missão 5: Reiniciar o Jogo
+
+#### 🎯 Objetivo  
+Adicionar um botão que reseta completamente o jogo, inclusive as conquistas e o progresso de Rebirth.
+
+#### 🔁 Nova função de reinício:
+```jsx
+const reiniciarJogo = () => {
+  setDoces(0);
+  setMultiplicador(1);
+  setPoderDoClique(1);
+  setCustoMelhoriaClique(5);
+  setAjudantes(0);
+  setCustoAjudante(20);
+  setCustoRebirth(100);
+  setConquista(0);
+  mostrarMensagem('🔁 Jogo reiniciado!');
+};
+```
+
+#### ➕ Botão:
+```jsx
+<TouchableOpacity style={estilos.botaoSecundario} onPress={reiniciarJogo}>
+  <Text style={estilos.textoBotao}>🔁 Reiniciar Jogo</Text>
+</TouchableOpacity>
+```
